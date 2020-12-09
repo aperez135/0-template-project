@@ -49,7 +49,7 @@ class TestPokeCardDex(unittest.TestCase):
     def test_addPokemon(self):
         card_dex = PokeCardDex()
 
-        pokemon = Pokemon('Charmander', 30, 'fire', 'water', None, (('flamethrower', 25),))
+        pokemon = Pokemon('Charmander', 30, 'fire', ('water', 2), None, (('flamethrower', 25),))
         card_dex.add_to_party(pokemon)
 
         self.assertEqual(card_dex.party[0].name, 'Charmander')
