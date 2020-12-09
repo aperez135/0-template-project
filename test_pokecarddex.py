@@ -7,7 +7,7 @@ from pokecarddex import Pokemon, PokeCardDex
 
 class TestPokemon(unittest.TestCase):
     def test_initAndAttrs(self):
-        p = Pokemon('Charmander', 30, 'fire', 'water', None, (('flamethrower', 25),))
+        p = Pokemon('Charmander', 30, 'fire', ('water', 2), None, (('flamethrower', 25),))
         required_attributes = ['name', 'hp', 'energy_type', 'weakness', 'resistance', 'moves', 'is_fainted']
         for attr in required_attributes:
             self.assertIn(attr, dir(p))
