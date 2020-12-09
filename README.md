@@ -80,8 +80,8 @@ In addition to `PokeCardDex` class, the `Pokemon` class will need to be defined.
 | `name`        | attr      | the name of the Pokemon                                                              |
 | `hp`          | attr      | the current health points (hp) of the Pokemon                                        |
 | `energy_type` | attr      | a string that represents the energy type of the pokemon                              |
-| `weakness`    | attr      | a string that represents the energy type and stregth of the weakness (if any)        |
-| `resiliance`  | attr      | a string that represents the energy type and damage offset of the resiliance (if any)|
+| `weakness`    | attr      | a tuple that represents the energy type and stregth of the weakness (if any)         |
+| `resiliance`  | attr      | a tuple that represents the energy type and damage offset of the resiliance (if any) |
 | `moves`       | attr      | a list of tuples that represent the name and damage of the moves                     |
 | `is_fainted`  | attr      | a boolean that represents if the pokemon is at 0 HP                                  |
 
