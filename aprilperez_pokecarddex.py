@@ -2,6 +2,7 @@
 PokeCardDex template.  This is a template file that is used to 
 """
 import random
+import json
 from ssl import CHANNEL_BINDING_TYPES
 from unicodedata import name
 from xml.dom import NamespaceErr
@@ -27,21 +28,29 @@ class Pokemon():
         self.weakness = weakness
         self.resistance = resistence
         self.moves = moves
+    
+    def display_pokemon(self):
+        print("Your Pokemon:\n".format(self.name))
+        print("Start HP:\n".format(self.start_hp))
+        print("Energy Type:\n".format(self.energy_type))
+        print("Weakness:\n".format(self.weakness))
+        print("Resistence:\n".format(self.resistence))
+        print("Moves:\n".format(self.moves))
 
-        if energy_type == "Water":
+        if self.energy_type == "Water":
             self.weakness == "Fire"
             self.resistance == "Grass"
             self.moves == {
 
             }
-        elif energy_type == "Grass":
+        elif self.energy_type == "Grass":
             self.weakness == "Fire"
             self.resistance == "Water"
             self.moves == {
 
             }
         
-        elif energy_type == "Fire":
+        elif self.energy_type == "Fire":
             self.weakness == "Water"
             self.resistance == "Grass"
             self.moves == {
@@ -53,7 +62,14 @@ class Pokemon():
 
     def __str__(self):
         return ('Pokemon: '), {self.name} ('with'), {self.hp} ('HP left')
-
+   
+    def is_fainted(self):
+       if self.current_hp <= 0:
+           print("Your Pokemon has fainted")
+           print("End of Battle")
+        else:
+               self.current_hp >= 0
+               return self.current_hp ["HP"]
 
 
 class PokeCardDex():
@@ -65,10 +81,10 @@ class PokeCardDex():
     import json
 
     with open ('/Users/aprilschool/Documents/GitHub/0-template-project/myParty.json') as f:
-        data = json.load(f)
-        # print(data.items())
-        pokemon = data.get(type="Skarmory")
-        print(pokemon.type) 
+        json_file_path = json.load(f)
+        
+        pokemon_list = json_file_path
+        print(pokemon_list) 
     
     def set_order(self, order):
         self.order = PokeCardDex.pokemon
@@ -113,6 +129,10 @@ class PokeCardDex():
 
     def add_to_party(self, pokemon):
         # for self.pokemon.append(pokemon)
+        if self.pokemon_list.append(pokemon):
+            return print("added".format(pokemon.name))
+
+        
         pass
 
 class WaterPokemon(Pokemon):
@@ -136,9 +156,9 @@ if __name__ == "__main__":
     pikachu = Pokemon('Pikachu', 100, 'electric', None, None, (('electric charge', 30),))
     rival_dex.add_to_party(pikachu)
 
-    # my_dex.battle(rival_dex)
+    my_dex.battle(rival_dex)
 
-    # for pokemon in my_dex.party:
-    #     print(pokemon.is_fainted)
+    for pokemon in my_dex.party:
+        print(pokemon.is_fainted)
 
     my_dex.heal_party()
